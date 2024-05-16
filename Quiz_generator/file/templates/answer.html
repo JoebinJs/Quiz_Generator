@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Trivia Answer</title>
+</head>
+<body>
+    <div class="answer-container">
+        <h2>Result:</h2>
+        <p>{{ result }}</p>
+        <p>Your answer: {{ selected_answer }}</p>
+        <p>Correct answer: {{ correct_answer }}</p>
+        <form action="/" method="get">
+            <input type="submit" value="Back to Home">
+        </form>
+    </div>
+</body>
+</html>
+

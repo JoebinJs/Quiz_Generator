@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Quiz</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>Question:</h2>
+        <p>{{ question }}</p>
+        <h3>Options:</h3>
+        <form action="/quiz" method="post">
+            {% for option in options %}
+                <input type="radio" id="{{ option }}" name="answer" value="{{ option }}">
+                <label for="{{ option }}">{{ option }}</label><br>
+            {% endfor %}
+            <input type="submit" value="Submit">
+        </form>
+        <form action="/" method="get">
+            <input type="submit" value="Back to Home">
+        </form>
+        {% if show_answer %}
+            <h3>Result:</h3>
+            <p>{{ result }}</p>
+            <p>Correct Answer: {{ correct_answer }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
